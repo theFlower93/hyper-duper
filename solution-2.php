@@ -12,7 +12,7 @@ function math($symbol, $n)
 				for( $i = 1; $i <= $n; $i++ ){
 					echo '<td>';
 					for( $j = 1; $j <= $n; $j++ ){
-						echo $i.$symbol.$j.' = '.($i+$j).'<br />';
+						echo $i . $symbol . $j . ' = ' . ($i + $j) . '<br />';
 					}
 					echo '</td>';
 				}
@@ -22,7 +22,7 @@ function math($symbol, $n)
 				for( $i = 1; $i <= $n; $i++ ){
 					echo '<td>';
 					for( $j = 1; $j <= $n; $j++ ){
-						echo $i.$symbol.$j.' = '.($i-$j).'<br />';
+						echo $i . $symbol . $j . ' = ' . ($i - $j) . '<br />';
 					}
 					echo '</td>';
 				}
@@ -32,7 +32,7 @@ function math($symbol, $n)
 				for( $i = 1; $i <= $n; $i++ ){
 					echo '<td>';
 					for( $j = 1; $j <= $n; $j++ ){
-						echo $i.$symbol.$j.' = '.($i*$j).'<br />';
+						echo $i . $symbol . $j . ' = ' . ($i * $j) . '<br />';
 					}
 					echo '</td>';
 				}
@@ -42,87 +42,87 @@ function math($symbol, $n)
 				for( $i = 1; $i <= $n; $i++ ){
 					echo '<td>';
 					for( $j = 1; $j <= $n; $j++ ){
-						echo $i.$symbol.$j.' = '.($i/$j).'<br />';
+						echo $i . $symbol . $j . ' = ' . ($i / $j) . '<br />';
 					}
 					echo '</td>';
 				}
 			echo "</tr></table><hr />";
 		} else
-			echo 'Error: Symbols only: "+", "-", "*", "/"'.'<hr />';
+			echo 'Error: Symbols only: "+", "-", "*", "/"' . '<hr />';
 	}
 }
 
 // testing
 math("+", 5);
 math("-", -8);
-math("/", 5);
+math("/", 4);
 
 
-function calc($symbol, $n)
+function calc($OP, $N)
 {
-	$symbol = htmlspecialchars($symbol);
+	$OP = htmlspecialchars($OP);
 
-	if( (int)$n < 0 )
-		echo "Error: N must be >= 0"."<hr />";
+	if( (int)$N < 0 )
+		echo "Error: N must be >= 0" . "<hr />";
 	else {
-		if( $symbol === "+" ){
+		if( $OP === "+" ){
 			echo "<table border='1' cellspacing='0' cellpadding='10'>";
-				echo "<tr>"."<td>".'+'."</td>";
-					for( $i=1; $i<=$n; $i++ )
+				echo "<tr>" . "<td>" . '+' . "</td>";
+					for( $i = 0; $i <= $N; $i++ )
 						echo "<td>$i</td>";
 				echo "</tr>";
-			for( $tr=1; $tr<=$n; $tr++ ){
+			for( $tr = 0; $tr <= $N; $tr++ ){
 				echo "<td>$tr</td>";
-				for( $td=1; $td<=$n; $td++ ){
-					echo "<td>".($tr+$td)."</td>";
+				for( $td = 0; $td <= $N; $td++ ){
+					echo "<td>" . ($tr + $td) . "</td>";
 				}
 				echo "</tr>";
 			}
 			echo "</table>";
-		} elseif( $symbol === "-" ){
+		} elseif( $OP === "-" ){
 			echo "<table border='1' cellspacing='0' cellpadding='10'>";
-				echo "<tr>"."<td>".'-'."</td>";
-					for( $i=1; $i<=$n; $i++ )
+				echo "<tr>" . "<td>" . '-' . "</td>";
+					for( $i = 0; $i <= $N; $i++ )
 						echo "<td>$i</td>";
 				echo "</tr>";
-			for( $tr=1; $tr<=$n; $tr++ ){
+			for( $tr = 0; $tr <= $N; $tr++ ){
 				echo "<td>$tr</td>";
-				for( $td=1; $td<=$n; $td++ ){
-					echo "<td>".($tr-$td)."</td>";
+				for( $td = 0; $td <= $N; $td++ ){
+					echo "<td>" . ($tr - $td) . "</td>";
 				}
 				echo "</tr>";
 			}
 			echo "</table>";
-		} elseif( $symbol === "*" ){
+		} elseif( $OP === "*" ){
 			echo "<table border='1' cellspacing='0' cellpadding='10'>";
-				echo "<tr>"."<td>".'*'."</td>";
-					for( $i=1; $i<=$n; $i++ )
+				echo "<tr>" . "<td>" . '*' . "</td>";
+					for( $i = 0; $i <= $N; $i++ )
 						echo "<td>$i</td>";
 				echo "</tr>";
-			for( $tr=1; $tr<=$n; $tr++ ){
+			for( $tr = 0; $tr <= $N; $tr++ ){
 				echo "<td>$tr</td>";
-				for( $td=1; $td<=$n; $td++ ){
-					echo "<td>".($tr*$td)."</td>";
+				for( $td = 0; $td <= $N; $td++ ){
+					echo "<td>" . ($tr * $td) . "</td>";
 				}
 				echo "</tr>";
 			}
 			echo "</table>";
-		} elseif( $symbol === "/" ){
+		} elseif( $OP === "/" ){
 			echo "<table border='1' cellspacing='0' cellpadding='10'>";
-				echo "<tr>"."<td>".'/'."</td>";
-					for( $i=0; $i<=$n; $i++ )
+				echo "<tr>" . "<td>" . '/' . "</td>";
+					for( $i = 0; $i <= $N; $i++ )
 						echo "<td>$i</td>";
 				echo "</tr>";
-			for( $tr=0; $tr<=$n; $tr++ ){
+			for( $tr = 0; $tr <= $N; $tr++ ){
 				echo "<td>$tr</td>";
-				for( $td=0; $td<=$n; $td++ ){
-					echo "<td>".@round(($tr/$td), 2)."</td>";
+				for( $td = 0; $td <= $N; $td++ ){
+					echo "<td>" . @round(($tr / $td), 2) . "</td>";
 				}
 				echo "</tr>";
 			}
 			echo "</table>";
 		} else
-			echo 'Error: Symbols only: "+", "-", "*", "/"'.'<hr />';
+			echo 'Error: Symbols only: "+", "-", "*", "/"' . '<hr />';
 	}
 }
 
