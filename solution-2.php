@@ -58,6 +58,7 @@ math("-", -8);
 math("/", 4);
 
 
+
 function calc($OP, $N)
 {
 	$OP = htmlspecialchars($OP);
