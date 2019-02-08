@@ -1,0 +1,15 @@
+= Трудовые будни
+
+Код из рального проекта. Надо найти и перечислить как можно больше проблем
+любого рода в этом отрывке:
+
+		  <div class="colomn">
+          <div class="name">
+            <a href="<?=$product['href']; ?>"><?=$product['name']; ?></a>
+            <div>
+              <?foreach ($product['option'] as $option) :?>
+              - <small><?=$option['name']; ?> <?=$option['value']; ?></small><br />
+              <?endforeach;?>
+              <?if ($product['recurring']) :?>
+              - <small><?=$text_payment_profile ?> <?=$product['profile']; ?></small><br />
+              <?endif;?>
